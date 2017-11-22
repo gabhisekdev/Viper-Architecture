@@ -12,7 +12,7 @@ V - View, I - Interactor, P - Presenter, E - Entity, R - Router
 
 ### Code Flow
 
-
+![DemoImage](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/Screen%20Shot%202017-11-22%20at%204.02.37%20PM.png)
 
 ## Sample Code
 The sample code has two modules : A Fruit List and Fruit Detail module.
