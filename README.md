@@ -44,7 +44,7 @@ This flow will be pretty more clear once we dig into some code.
 
 
 ## Sample Code
-We will be preparing a small app which list a fruit list that we will having in our diet plan along with the vitamins that they provide to us. Oh cool now it feels, we are going to do a nursery project. Ooof ...relief
+We will be preparing a small app which shows a fruit list that we will having in our diet plan along with the vitamins that they provide to us. Oh cool now it feels, we are going to do a nursery project. Ooof ...relief
 
 The sample code has two modules : A FruitList and FruitDetail module.
 
