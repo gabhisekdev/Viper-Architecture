@@ -21,7 +21,7 @@ Our traditional MVC and MVM architecture that we are all accquainted with have o
 
 ## VIPER flow
 
-![VIPERStructure](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/Screen%20Shot%202017-11-22%20at%204.19.15%20PM.png)
+![VIPERStructure](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/ProjectImages/Screen%20Shot%202017-11-22%20at%204.19.15%20PM.png)
 
 - All the communications in the project are usually made using protocols and delegates.
 
@@ -51,7 +51,7 @@ The sample code has two modules : A FruitList and FruitDetail module.
 
 ### FruitList Module
 
-![FruitList Module](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/Screen%20Shot%202017-11-22%20at%204.02.37%20PM.png)
+![FruitList Module](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/ProjectImages/Screen%20Shot%202017-11-22%20at%204.02.37%20PM.png)
 
 The fruit list has the following parts in it:
 
@@ -67,7 +67,7 @@ Lets start from the protocol class that has all our communication methods.
 
 #### Protocols - FruitListProtocols.swift
 
-![ProtocolList](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/Protocols.png)
+![ProtocolList](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/ProjectImages/Protocols.png)
 
 
 The "FruitListProtocols.swift" contains all the related protocols and delegate methods that we will be using to communicate between our different handler files.
@@ -108,7 +108,7 @@ presenter?.viewDidLoad()
 * Now our view handles the displaying of our fruit list loading the tableView.
 
 
-![FruitList](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/FruitList.png)
+![FruitList](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/ProjectImages/FruitList.png)
 
 
 Whoa!!! That was easy ..... Wait but we didn't see any router mechanism. Wait we will be seeing that soon.
@@ -137,7 +137,7 @@ func pushToFruitDetail(with fruit: Fruit,from view: UIViewController) {
   }
 ```
 
-![Fruit Detail](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/FruitDetail.png)
+![Fruit Detail](https://github.com/GABHISEKBUNTY/Viper-Architecture/blob/master/ProjectImages/FruitDetail.png)
 
 I have created a separate module for FruitDetail inorder to make us clear how we can manage multiple modules in our code
 
