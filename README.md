@@ -145,6 +145,16 @@ I have created a separate module for FruitDetail inorder to make us clear how we
 That was a sweet travel along our small Diet plan. Looking back to our project structure, we can see that our project has become more modular and structurised.
 
 
+## Disadvantages of VIPER:
+
+Don't get away with the modularity of VIPER. There are many disadvantages of VIPER as well:
+
+1. We do have lots of code to write down. 
+2. We have lots of file added to our project.
+3. Communicatiom between different file handlers become difficult and needs to be planned before implementation.
+4. VIPER in small projects can be a killer, time consuming and bulgy.
+
+
 ## Presentation
 
 I have a small presentation prepared regarding the VIPER architecture which you would love to have a peek into
