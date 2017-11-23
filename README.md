@@ -145,7 +145,7 @@ I have created a separate module for FruitDetail inorder to make us clear how we
 That was a sweet travel along our small Diet plan. Looking back to our project structure, we can see that our project has become more modular and structurised.
 
 
-## Disadvantages of VIPER:
+## Disadvantages of VIPER
 
 Don't get away with the modularity of VIPER. There are many disadvantages of VIPER as well:
 
