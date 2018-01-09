@@ -1,7 +1,7 @@
 
 # Advance VIPER Implementation
 
-This project demonstrates usage of VIPER design pattern in a full fledged practical application which involves API request, database storage and designing UI components.
+This project demonstrates usage of VIPER design pattern in a full fledged practical application which involves API request, database storage and configuring UI components.
 
 
 ## TravelTracker
