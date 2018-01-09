@@ -22,5 +22,4 @@ class FruitDetailPresenter: FruitDetailPresenterProtocol {
         
     }
     
-   
 }
