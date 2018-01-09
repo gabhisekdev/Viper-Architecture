@@ -161,7 +161,25 @@ Don't get away with the modularity of VIPER. There are many disadvantages of VIP
 ## Presentation
 
 I have a small presentation prepared regarding the VIPER architecture which you would love to have a peek into
-[VIPER Presentation](https://www.slideshare.net/secret/8d94cguUVFyD9g). 
+[VIPER Presentation](https://www.slideshare.net/secret/8d94cguUVFyD9g).
+
+
+## I will love to hear from you
+
+You can reach me for any query, feedback or just want to have a discussion by the following channels:
+
+### [Twitter - @G_ABHISEK](https://twitter.com/G_ABHISEK)
+
+### [LinkedIn](https://www.linkedin.com/in/g-abhisek-7a8359b1/)
+
+### [StackOverflow](https://stackoverflow.com/users/5395919/g-abhisek)
+
+### GMail
+abhisekbunty94@gmail.com
+
+In order to get connected instantly
+
+### SkypeId - gabhisekbunty
 
 
 ## Acknowledgment

@@ -163,7 +163,6 @@
 				93CEA05A2002A1F600C76927 /* AppDelegate.swift */,
 				93CEA0642002A1F600C76927 /* Assets.xcassets */,
 				93CEA0692002A1F600C76927 /* Info.plist */,
-				93CEA0612002A1F600C76927 /* TravelTracker.xcdatamodeld */,
 			);
 			path = TravelTracker;
 			sourceTree = "<group>";
@@ -189,6 +188,7 @@
 		93CEA07E2002AC5200C76927 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				93CEA0612002A1F600C76927 /* TravelTracker.xcdatamodeld */,
 				93CEA0842002ACE500C76927 /* CDManager.swift */,
 			);
 			path = Database;
