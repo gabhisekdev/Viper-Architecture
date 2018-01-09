@@ -24,18 +24,18 @@ I have made only one module i.e the Search Module consisting of two pages to sho
 
 You can reach me for any query, feedback or just want to have a discussion by the following channels:
 
-### [Twitter - @G_ABHISEK](https://twitter.com/G_ABHISEK)
+#### [Twitter - @G_ABHISEK](https://twitter.com/G_ABHISEK)
 
-### [LinkedIn](https://www.linkedin.com/in/g-abhisek-7a8359b1/)
+#### [LinkedIn](https://www.linkedin.com/in/g-abhisek-7a8359b1/)
 
-### [StackOverflow](https://stackoverflow.com/users/5395919/g-abhisek)
+#### [StackOverflow](https://stackoverflow.com/users/5395919/g-abhisek)
 
-### GMail
+#### GMail
 abhisekbunty94@gmail.com
 
 In order to get connected instantly
 
-### SkypeId - gabhisekbunty
+#### SkypeId - gabhisekbunty
 
 
 
