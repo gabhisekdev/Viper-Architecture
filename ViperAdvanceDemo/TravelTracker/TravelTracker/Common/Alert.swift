@@ -27,21 +27,4 @@ struct Alert {
     
   }
   
-  func showLoader() {
-    activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-    activityIndicator.center = (rootController?.view.center)!
-    activityIndicator.hidesWhenStopped = true
-    activityIndicator.activityIndicatorViewStyle =
-      UIActivityIndicatorViewStyle.whiteLarge
-    rootController?.view.addSubview(activityIndicator)
-    activityIndicator.startAnimating()
-    UIApplication.shared.beginIgnoringInteractionEvents()
-  }
-  
-  func hideLoader() {
-    activityIndicator.removeFromSuperview()
-    UIApplication.shared.endIgnoringInteractionEvents()
-  }
-  
-  
 }

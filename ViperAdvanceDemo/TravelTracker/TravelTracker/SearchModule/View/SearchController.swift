@@ -33,21 +33,27 @@ class SearchController: UIViewController {
   }
   
   @IBAction func searchRoutesButtonPressed(_ sender: Any) {
-    guard let startLocation = startLocationTextField.text else {
+    if startLocationTextField.text! == "" {
       Alert().showAlert(withMessage: "Please enter a start location.", title: "Error")
       return
     }
     
-    guard let endLocation = endLocationTextField.text else {
+    if endLocationTextField.text! == "" {
       Alert().showAlert(withMessage: "Please enter an end location.", title: "Error")
       return
     }
-    Alert().showLoader() 
-    presenter.getRouteButtonPressedFor(from: startLocation, to: endLocation)
+    
+    presenter.getRouteButtonPressedFor(from: startLocationTextField.text!, to: endLocationTextField.text!)
   }
   
   @IBAction func clearSavedDataBtnPressed(_ sender: Any) {
     presenter.clearSavedData()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+      DispatchQueue.main.async { [weak self] in
+        self?.savedSearches.removeAll()
+        self?.searchesTableView.reloadData()
+      }
+    }
   }
   
 }

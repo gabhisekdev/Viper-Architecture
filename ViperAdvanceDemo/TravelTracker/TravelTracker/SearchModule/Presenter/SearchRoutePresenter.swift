@@ -26,6 +26,7 @@ class SearchRoutePresenter: SearchViewProtocol {
   
   func clearSavedData() {
     searchInteractor?.clearSavedSearches()//Clear saved searches.
+    viewRef?.updateTheRecentSearchList(recentSavedSearchs: nil,error: nil)
   }
   
 }
@@ -42,7 +43,6 @@ extension SearchRoutePresenter: SearchInteractorOutputProtocol {
   
   //Called when the route detail has been fetched from the server
   func routeDetailFetched(route: GoogleRoute?,errorMessage: String?) {
-    Alert().hideLoader()
     guard let sourceController = viewRef, let routeToBeshown = route else {
       if errorMessage != nil {
         Alert().showAlert(withMessage: "There is a problem in fetching route. Please try again.", title: "Error")
