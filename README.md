@@ -20,7 +20,7 @@ Our traditional MVC and MVM architecture that we are all accquainted with have o
 
 ## Code Description
 
-[Flow Description](https://www.linkedin.com/pulse/viper-architecture-example-ios-swift-4-g-abhisek/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_post_details%3B5VUVGXL1Qfe86IoIYbiO4w%3D%3D)
+[Flow Description](https://www.linkedin.com/pulse/viper-architecture-example-ios-swift-4-g-abhisek/)
 
 
 ## Acknowledgment
