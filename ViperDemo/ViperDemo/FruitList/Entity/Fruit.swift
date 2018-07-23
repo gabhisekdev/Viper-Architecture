@@ -9,7 +9,6 @@
 import UIKit
 
 struct Fruit {
- 
     var name: String!
     var vitamin: String!
     

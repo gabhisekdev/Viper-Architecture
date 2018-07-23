@@ -10,8 +10,8 @@ import UIKit
 
 class FruitDetailPresenter: FruitDetailPresenterProtocol {
     
-    var view: FruitDetailViewProtocol?
-    var wireframe: FruitDetailWireFrameProtocol?
+    weak var view: FruitDetailViewProtocol?
+    weak var wireframe: FruitDetailWireFrameProtocol?
     var fruit: Fruit?
     
     func viewDidLoad() {

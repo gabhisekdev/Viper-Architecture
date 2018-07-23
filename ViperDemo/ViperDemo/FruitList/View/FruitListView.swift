@@ -12,15 +12,13 @@ class FruitListView: UIViewController,FruitListViewProtocol {
     
     @IBOutlet var fruitTblView: UITableView!
     
-    var presenter:FruitListPresenterProtocol?
+    weak var presenter:FruitListPresenterProtocol?
     var fruitList = [Fruit]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         FruitListWireframe.createFruitListModule(fruitListRef: self)
         presenter?.viewDidLoad()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +28,7 @@ class FruitListView: UIViewController,FruitListViewProtocol {
 
     func showFruits(with fruits: [Fruit]) {
         fruitList = fruits
-        self.fruitTblView.reloadData()
+        fruitTblView.reloadData()
     }
 
 }
@@ -38,18 +36,15 @@ class FruitListView: UIViewController,FruitListViewProtocol {
 extension FruitListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = fruitTblView.dequeueReusableCell(withIdentifier: "fruitCell", for: indexPath)
         let fruit = fruitList[indexPath.row]
         cell.textLabel?.text = fruit.name
         cell.detailTextLabel?.text = fruit.vitamin
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fruitList.count
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

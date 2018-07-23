@@ -10,17 +10,15 @@ import UIKit
 
 class FruitListInteractor: FruitListInputInteractorProtocol {
     
-    var presenter: FruitListOutputInteractorProtocol?
+    weak var presenter: FruitListOutputInteractorProtocol?
     
     func getFruitList() {
         presenter?.fruitListDidFetch(fruitList: getAllFruitDetail())
     }
     
     func getAllFruitDetail() -> [Fruit] {
-        
         var fruitList = [Fruit]()
         let allFruitDetail = Common.generateDataList()
-        
         for item in allFruitDetail {
             fruitList.append(Fruit(attributes: item))
         }

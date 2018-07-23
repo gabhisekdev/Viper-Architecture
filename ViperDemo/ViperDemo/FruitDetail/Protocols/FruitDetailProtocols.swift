@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FruitDetailPresenterProtocol {
+protocol FruitDetailPresenterProtocol: class {
     
     var wireframe: FruitDetailWireFrameProtocol? {get set}
     var view: FruitDetailViewProtocol? {get set}
@@ -19,11 +19,11 @@ protocol FruitDetailPresenterProtocol {
     
 }
 
-protocol FruitDetailViewProtocol {
+protocol FruitDetailViewProtocol: class {
     //Presenter -> View
     func showFruitDetail(with fruit: Fruit)
 }
 
-protocol FruitDetailWireFrameProtocol {
+protocol FruitDetailWireFrameProtocol: class {
     func goBackToFruitListView(from view: UIViewController)
 }

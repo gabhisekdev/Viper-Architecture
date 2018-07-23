@@ -14,7 +14,7 @@ protocol FruitListViewProtocol: class {
     func showFruits(with fruits: [Fruit])
 }
 
-protocol FruitListPresenterProtocol {
+protocol FruitListPresenterProtocol: class {
     //View -> Presenter
     var interactor: FruitListInputInteractorProtocol? {get set}
     var view: FruitListViewProtocol? {get set}
@@ -24,18 +24,18 @@ protocol FruitListPresenterProtocol {
     func showFruitSelection(with fruit: Fruit, from view: UIViewController)
 }
 
-protocol FruitListInputInteractorProtocol {
+protocol FruitListInputInteractorProtocol: class {
     var presenter: FruitListOutputInteractorProtocol? {get set}
     //Presenter -> Interactor
     func getFruitList()
 }
 
-protocol FruitListOutputInteractorProtocol {
+protocol FruitListOutputInteractorProtocol: class {
     //Interactor -> Presenter
     func fruitListDidFetch(fruitList: [Fruit])
 }
 
-protocol FruitListWireFrameProtocol {
+protocol FruitListWireFrameProtocol: class {
     //Presenter -> Wireframe
     func pushToFruitDetail(with fruit: Fruit,from view: UIViewController)
     static func createFruitListModule(fruitListRef: FruitListView)

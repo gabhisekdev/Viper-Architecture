@@ -10,10 +10,10 @@ import UIKit
 
 class FruitListPresenter: FruitListPresenterProtocol {
     
-    var wireframe: FruitListWireFrameProtocol?
-    var view: FruitListViewProtocol?
-    var interactor: FruitListInputInteractorProtocol?
-    var presenter: FruitListPresenterProtocol?
+    weak var wireframe: FruitListWireFrameProtocol?
+    weak var view: FruitListViewProtocol?
+    weak var interactor: FruitListInputInteractorProtocol?
+    weak var presenter: FruitListPresenterProtocol?
     
     func showFruitSelection(with fruit: Fruit, from view: UIViewController) {
         wireframe?.pushToFruitDetail(with: fruit, from: view)

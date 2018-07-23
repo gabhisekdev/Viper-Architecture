@@ -14,7 +14,7 @@ class FruitDetailView: UIViewController,FruitDetailViewProtocol {
     @IBOutlet var fruitNameLbl: UILabel!
     @IBOutlet var vitaminLbl: UILabel!
     
-    var presenter: FruitDetailPresenterProtocol?
+    weak var presenter: FruitDetailPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,10 @@ class FruitDetailView: UIViewController,FruitDetailViewProtocol {
     }
 
     func showFruitDetail(with fruit: Fruit) {
-        self.title = fruit.name
-        self.fruitImage.image = UIImage(named: fruit.name)
-        self.fruitNameLbl.text = fruit.name
-        self.vitaminLbl.text = fruit.vitamin
+        title = fruit.name
+        fruitImage.image = UIImage(named: fruit.name)
+        fruitNameLbl.text = fruit.name
+        vitaminLbl.text = fruit.vitamin
     }
 
 }
