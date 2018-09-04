@@ -14,7 +14,7 @@ class FruitDetailView: UIViewController,FruitDetailViewProtocol {
     @IBOutlet var fruitNameLbl: UILabel!
     @IBOutlet var vitaminLbl: UILabel!
     
-    weak var presenter: FruitDetailPresenterProtocol?
+    var presenter: FruitDetailPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()

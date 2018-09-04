@@ -12,7 +12,7 @@ class FruitListView: UIViewController,FruitListViewProtocol {
     
     @IBOutlet var fruitTblView: UITableView!
     
-    weak var presenter:FruitListPresenterProtocol?
+    var presenter:FruitListPresenterProtocol?
     var fruitList = [Fruit]()
     
     override func viewDidLoad() {
