@@ -10,7 +10,7 @@ import UIKit
 
 class FruitDetailPresenter: FruitDetailPresenterProtocol {
     
-    var view: FruitDetailViewProtocol?
+    weak var view: FruitDetailViewProtocol?
     var wireframe: FruitDetailWireFrameProtocol?
     var fruit: Fruit?
     
@@ -20,6 +20,10 @@ class FruitDetailPresenter: FruitDetailPresenterProtocol {
     
     func backButtonPressed(from view: UIViewController) {
         
+    }
+    
+    deinit {
+        print("FruitDetailPresenter removed")
     }
     
 }

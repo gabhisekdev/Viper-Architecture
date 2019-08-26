@@ -21,5 +21,9 @@ class FruitDetailWireFrame: FruitDetailWireFrameProtocol {
     func goBackToFruitListView(from view: UIViewController) {
         
     }
+    
+    deinit {
+        print("FruitDetailWireFrame removed")
+    }
 
 }

@@ -32,5 +32,9 @@ class FruitDetailView: UIViewController,FruitDetailViewProtocol {
         fruitNameLbl.text = fruit.name
         vitaminLbl.text = fruit.vitamin
     }
+    
+    deinit {
+        print("FruitDetailView removed")
+    }
 
 }
