@@ -1,6 +1,6 @@
 //
 //  GMSPlaceLikelihoodList.h
-//  Google Places API for iOS
+//  Google Places SDK for iOS
 //
 //  Copyright 2016 Google Inc.
 //
@@ -10,9 +10,9 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN;
-
 @class GMSPlaceLikelihood;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Represents a list of places with an associated likelihood for the place being the correct place.
@@ -33,10 +33,10 @@ NS_ASSUME_NONNULL_BEGIN;
  * provider.
  *
  * In general, these must be shown to the user if data from this likelihood list is shown, as
- * described in the Places API Terms of Service.
+ * described in the Places SDK Terms of Service.
  */
 @property(nonatomic, copy, readonly, nullable) NSAttributedString *attributions;
 
 @end
 
-NS_ASSUME_NONNULL_END;
+NS_ASSUME_NONNULL_END

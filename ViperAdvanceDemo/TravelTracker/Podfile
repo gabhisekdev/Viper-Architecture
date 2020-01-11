@@ -2,14 +2,15 @@
 # platform :ios, '9.0'
 
 target 'TravelTracker' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  # Pods for TravelTracker
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 
+
   target 'TravelTrackerUITests' do
-    inherit! :search_paths
     # Pods for testing
   end
 

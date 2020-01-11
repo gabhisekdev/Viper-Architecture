@@ -1,6 +1,6 @@
 //
 //  GMSAutocompleteFilter.h
-//  Google Places API for iOS
+//  Google Places SDK for iOS
 //
 //  Copyright 2016 Google Inc.
 //
@@ -8,9 +8,10 @@
 //  Service: https://developers.google.com/maps/terms
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN;
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * \defgroup PlacesAutocompleteTypeFilter GMSPlacesAutocompleteTypeFilter
@@ -76,6 +77,12 @@ typedef NS_ENUM(NSInteger, GMSPlacesAutocompleteTypeFilter) {
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
+/**
+ * The staight line distance origin location for measuring the straight line distance between the
+ * origin location and autocomplete predictions.
+ */
+@property(nonatomic, nullable) CLLocation *origin;
+
 @end
 
-NS_ASSUME_NONNULL_END;
+NS_ASSUME_NONNULL_END
