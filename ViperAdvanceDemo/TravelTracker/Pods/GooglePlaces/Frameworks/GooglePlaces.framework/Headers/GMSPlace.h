@@ -1,6 +1,6 @@
 //
 //  GMSPlace.h
-//  Google Places API for iOS
+//  Google Places SDK for iOS
 //
 //  Copyright 2016 Google Inc.
 //
@@ -10,10 +10,13 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-NS_ASSUME_NONNULL_BEGIN;
-
 @class GMSAddressComponent;
 @class GMSCoordinateBounds;
+@class GMSOpeningHours;
+@class GMSPlacePhotoMetadata;
+@class GMSPlusCode;
+
+NS_ASSUME_NONNULL_BEGIN
 
 
 /**
@@ -23,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN;
 
 /**
  * Describes the current open status of a place.
+ *
+ * (Deprecated: This enum is currently not supported and should not be used. Use GMSPlaceOpenStatus
+ * instead.)
  */
 typedef NS_ENUM(NSInteger, GMSPlacesOpenNowStatus) {
   /** The place is open now. */
@@ -55,6 +61,25 @@ typedef NS_ENUM(NSInteger, GMSPlacesPriceLevel) {
 /**@}*/
 
 /**
+ * \defgroup PlaceOpenStatus GMSPlaceOpenStatus
+ * @{
+ */
+
+/**
+ * Describes the open status of a place.
+ */
+typedef NS_ENUM(NSInteger, GMSPlaceOpenStatus) {
+  /** The place's open status is unknown. */
+  GMSPlaceOpenStatusUnknown,
+  /** The place is open. */
+  GMSPlaceOpenStatusOpen,
+  /** The place is not open. */
+  GMSPlaceOpenStatusClosed,
+};
+
+/**@}*/
+
+/**
  * Represents a particular physical place. A GMSPlace encapsulates information about a physical
  * location, including its name, location, and any other information we might have about it. This
  * class is immutable.
@@ -62,10 +87,10 @@ typedef NS_ENUM(NSInteger, GMSPlacesPriceLevel) {
 @interface GMSPlace : NSObject
 
 /** Name of the place. */
-@property(nonatomic, copy, readonly) NSString *name;
+@property(nonatomic, copy, readonly, nullable) NSString *name;
 
 /** Place ID of this place. */
-@property(nonatomic, copy, readonly) NSString *placeID;
+@property(nonatomic, copy, readonly, nullable) NSString *placeID;
 
 /**
  * Location of the place. The location is not necessarily the center of the Place, or any
@@ -76,8 +101,11 @@ typedef NS_ENUM(NSInteger, GMSPlacesPriceLevel) {
 
 /**
  * Represents the open now status of the place at the time that the place was created.
+ *
+ * (Deprecated: This property is currently not supported and should not be used)
  */
-@property(nonatomic, readonly, assign) GMSPlacesOpenNowStatus openNowStatus;
+@property(nonatomic, readonly, assign) GMSPlacesOpenNowStatus openNowStatus __deprecated_msg(
+    "openNowStatus property is currently not supported and should not be used)");
 
 /**
  * Phone number of this place, in international format, i.e. including the country code prefixed
@@ -108,9 +136,9 @@ typedef NS_ENUM(NSInteger, GMSPlacesPriceLevel) {
 
 /**
  * The types of this place.  Types are NSStrings, valid values are any types documented at
- * <https://developers.google.com/places/ios-api/supported_types>.
+ * <https://developers.google.com/places/ios-sdk/supported_types>.
  */
-@property(nonatomic, copy, readonly) NSArray<NSString *> *types;
+@property(nonatomic, copy, readonly, nullable) NSArray<NSString *> *types;
 
 /** Website for this place. */
 @property(nonatomic, copy, readonly, nullable) NSURL *website;
@@ -122,7 +150,7 @@ typedef NS_ENUM(NSInteger, GMSPlacesPriceLevel) {
  * provider.
  *
  * In general, these must be shown to the user if data from this GMSPlace is shown, as described in
- * the Places API Terms of Service.
+ * the Places SDK Terms of Service.
  */
 @property(nonatomic, copy, readonly, nullable) NSAttributedString *attributions;
 
@@ -145,6 +173,55 @@ typedef NS_ENUM(NSInteger, GMSPlacesPriceLevel) {
  */
 @property(nonatomic, copy, readonly, nullable) NSArray<GMSAddressComponent *> *addressComponents;
 
+/**
+ * The Plus code representation of location for this place.
+ */
+@property(nonatomic, strong, readonly, nullable) GMSPlusCode *plusCode;
+
+/**
+ * The Opening Hours information for this place.
+ * Includes open status, periods and weekday text when available.
+ */
+@property(nonatomic, strong, readonly, nullable) GMSOpeningHours *openingHours;
+
+/**
+ * Represents how many reviews make up this place's rating.
+ */
+@property(nonatomic, readonly, assign) NSUInteger userRatingsTotal;
+
+/**
+ * An array of |GMSPlacePhotoMetadata| objects representing the photos of the place.
+ */
+@property(nonatomic, copy, readonly, nullable) NSArray<GMSPlacePhotoMetadata *> *photos;
+
+/**
+ * The timezone UTC offset of the place in minutes.
+ */
+@property(nonatomic, readonly, nullable) NSNumber *UTCOffsetMinutes;
+
+/**
+ * Default init is not available.
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ * Calculates if a place is open based on |openingHours|, |UTCOffsetMinutes|, and |date|.
+ *
+ * @param date A reference point in time used to determine if the place is open.
+ * @return GMSPlaceOpenStatusOpen if the place is open, GMSPlaceOpenStatusClosed if the place is
+ *     closed, and GMSPlaceOpenStatusUnknown if the open status is unknown.
+ */
+- (GMSPlaceOpenStatus)isOpenAtDate:(NSDate *)date;
+
+/**
+ * Calculates if a place is open based on |openingHours|, |UTCOffsetMinutes|, and current date
+ * and time obtained from |[NSDate date]|.
+ *
+ * @return GMSPlaceOpenStatusOpen if the place is open, GMSPlaceOpenStatusClosed if the place is
+ *     closed, and GMSPlaceOpenStatusUnknown if the open status is unknown.
+ */
+- (GMSPlaceOpenStatus)isOpen;
+
 @end
 
-NS_ASSUME_NONNULL_END;
+NS_ASSUME_NONNULL_END

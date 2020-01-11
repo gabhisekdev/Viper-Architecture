@@ -13,10 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GoogleMapsDemos/Samples/FrameRateViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
@@ -86,7 +82,7 @@
 - (void)updateStatus {
   _statusTextView.text =
       [NSString stringWithFormat:@"Preferred frame rate: %@",
-                                 [self.class nameForFrameRate:_mapView.preferredFrameRate]];
+                                 [[self class] nameForFrameRate:_mapView.preferredFrameRate]];
 }
 
 @end

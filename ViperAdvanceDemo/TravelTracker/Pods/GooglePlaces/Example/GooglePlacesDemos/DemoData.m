@@ -13,21 +13,15 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GooglePlacesDemos/DemoData.h"
 
-#import "GooglePlacesDemos/Support/BaseDemoViewController.h"
 #import "GooglePlacesDemos/Samples/Autocomplete/AutocompleteModalViewController.h"
 #import "GooglePlacesDemos/Samples/Autocomplete/AutocompletePushViewController.h"
 #import "GooglePlacesDemos/Samples/Autocomplete/AutocompleteWithCustomColors.h"
-#import "GooglePlacesDemos/Samples/Autocomplete/AutocompleteWithSearchDisplayController.h"
 #import "GooglePlacesDemos/Samples/Autocomplete/AutocompleteWithSearchViewController.h"
 #import "GooglePlacesDemos/Samples/Autocomplete/AutocompleteWithTextFieldController.h"
-#import "GooglePlacesDemos/Samples/PhotosViewController.h"
-#import "GooglePlacesDemos/Samples/PlacePickerViewController.h"
+#import "GooglePlacesDemos/Samples/FindPlaceLikelihoodListViewController.h"
+#import "GooglePlacesDemos/Support/BaseDemoViewController.h"
 
 @implementation Demo {
   Class _viewControllerClass;
@@ -41,21 +35,29 @@
   return self;
 }
 
-- (UIViewController *)createViewControllerForSplitView:
-    (UISplitViewController *)splitViewController {
+- (UIViewController *)
+    createViewControllerWithAutocompleteBoundsMode:(GMSAutocompleteBoundsMode)autocompleteBoundsMode
+                 autocompleteBoundsNorthEastCorner:
+                     (CLLocationCoordinate2D)autocompleteBoundsNorthEastCorner
+                 autocompleteBoundsSouthWestCorner:
+                     (CLLocationCoordinate2D)autocompleteBoundsSouthWestCorner
+                                autocompleteFilter:(GMSAutocompleteFilter *)autocompleteFilter
+                                       placeFields:(GMSPlaceField)placeFields {
   // Construct the demo view controller.
   UIViewController *demoViewController = [[_viewControllerClass alloc] init];
 
-  // Configure its left bar button item to display the displayModeButtonItem provided by the
-  // splitViewController.
-  demoViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-  demoViewController.navigationItem.leftItemsSupplementBackButton = YES;
+  // Pass the place fields to the view controller for these classes.
+  if ([demoViewController isKindOfClass:[AutocompleteBaseViewController class]]) {
+    AutocompleteBaseViewController *controller =
+        (AutocompleteBaseViewController *)demoViewController;
+    controller.autocompleteBoundsNorthEastCorner = autocompleteBoundsNorthEastCorner;
+    controller.autocompleteBoundsSouthWestCorner = autocompleteBoundsSouthWestCorner;
+    controller.autocompleteBoundsMode = autocompleteBoundsMode;
+    controller.autocompleteFilter = autocompleteFilter;
+    controller.placeFields = placeFields;
+  }
 
-  // Wrap the demo in a navigation controller.
-  UINavigationController *navigationController =
-      [[UINavigationController alloc] initWithRootViewController:demoViewController];
-
-  return navigationController;
+  return demoViewController;
 }
 
 @end
@@ -80,16 +82,12 @@
       [[Demo alloc] initWithViewControllerClass:[AutocompleteWithCustomColors class]],
       [[Demo alloc] initWithViewControllerClass:[AutocompleteModalViewController class]],
       [[Demo alloc] initWithViewControllerClass:[AutocompletePushViewController class]],
-      [[Demo alloc] initWithViewControllerClass:[AutocompleteWithSearchDisplayController class]],
       [[Demo alloc] initWithViewControllerClass:[AutocompleteWithSearchViewController class]],
       [[Demo alloc] initWithViewControllerClass:[AutocompleteWithTextFieldController class]],
     ];
 
-    NSArray<Demo *> *otherDemos = @[
-      [[Demo alloc] initWithViewControllerClass:[PhotosViewController class]],
-      [[Demo alloc] initWithViewControllerClass:[PlacePickerViewController class]]
-    ];
-
+    NSArray<Demo *> *findPlaceLikelihoodDemos = @[ [[Demo alloc]
+        initWithViewControllerClass:[FindPlaceLikelihoodListViewController class]] ];
 
     _sections = @[
       [[DemoSection alloc]
@@ -97,9 +95,9 @@
                                           @"Title of the autocomplete demo section")
                   demos:autocompleteDemos],
       [[DemoSection alloc]
-          initWithTitle:NSLocalizedString(@"Demo.Section.Title.Programmatic",
-                                          @"Title of the 'Programmatic' demo section")
-                  demos:otherDemos],
+          initWithTitle:NSLocalizedString(@"Demo.Section.Title.FindPlaceLikelihood",
+                                          @"Title of the findPlaceLikelihood demo section")
+                  demos:findPlaceLikelihoodDemos]
     ];
   }
   return self;

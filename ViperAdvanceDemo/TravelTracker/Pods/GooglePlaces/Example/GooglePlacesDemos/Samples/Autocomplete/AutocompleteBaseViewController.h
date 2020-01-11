@@ -13,15 +13,38 @@
  * permissions and limitations under the License.
  */
 
-#import "GooglePlacesDemos/Support/BaseDemoViewController.h"
-
 #import <GooglePlaces/GooglePlaces.h>
+#import "GooglePlacesDemos/Support/BaseDemoViewController.h"
 
 /**
  * All other autocomplete demo classes inherit from this class. This class optionally adds a button
  * to present the autocomplete widget, and displays the results when these are selected.
  */
 @interface AutocompleteBaseViewController : BaseDemoViewController
+
+/**
+ * Components of bounds used to bias or restrict the autocomplete results depending on the value of
+ * |CLLocationCoordinate2D| values of the North East and South West corners. Defaults to
+ * kCLLocationCoordinate2DInvalid to indicate bounds are not active.
+ */
+@property(nonatomic, assign) CLLocationCoordinate2D autocompleteBoundsNorthEastCorner;
+@property(nonatomic, assign) CLLocationCoordinate2D autocompleteBoundsSouthWestCorner;
+
+/**
+ * How to treat the |autocompleteBounds| property. Defaults to |kGMSAutocompleteBoundsModeBias|.
+ *
+ * Has no effect if |autocompleteBounds| is nil.
+ */
+@property(nonatomic, assign) GMSAutocompleteBoundsMode autocompleteBoundsMode;
+
+/** Filter to apply to autocomplete suggestions (can be nil). */
+@property(nonatomic, strong) GMSAutocompleteFilter *autocompleteFilter;
+
+/**
+ * The |GMSPlaceField| for specifying explicit place details to be requested for the |GMSPlace|
+ * result.
+ */
+@property(nonatomic, assign) GMSPlaceField placeFields;
 
 /**
  * Build a UIButton to display the autocomplete widget and add it to the UI. This should be called
@@ -34,18 +57,10 @@
  */
 - (UIButton *)createShowAutocompleteButton:(SEL)selector;
 
-/**
- * Add the result display view below the specified view. This should be called after the rest of the
- * UI has been configured.
- *
- * @param view The view to add the results below, this may be nil to indicate that the result view
- * should fill the parent.
- */
-- (void)addResultViewBelow:(UIView *)view;
-
 - (void)autocompleteDidSelectPlace:(GMSPlace *)place;
 - (void)autocompleteDidFail:(NSError *)error;
 - (void)autocompleteDidCancel;
 - (void)showCustomMessageInResultPane:(NSString *)message;
+- (void)resetViews;
 
 @end

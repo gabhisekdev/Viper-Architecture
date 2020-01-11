@@ -9,37 +9,23 @@ This pod contains the Google Places API for iOS, supporting both Objective C and
 Swift.
 
 Use the [Google Places API for iOS]
-(https://developers.google.com/places/ios-api/) for exciting features based
+(https://developers.google.com/places/ios-sdk/) for exciting features based
 on the user's location and Google's Places database. You can enable users to
 add a place, autocomplete place names, use a place picker widget, identify
 the user's current place or retrieve full details and photos of a place.
 
-The Google Places API for iOS is distributed as two Pods to allow developers to
-have more control over what code is included in their apps. This helps to
-create and distribute smaller apps.
-
-This Pod contains all the Google Places API for iOS functionality which does not
-require a map. If you wish to use the [Place Picker]
-(https://developers.google.com/places/ios-api/placepicker) in your app then you
-should also add the [GooglePlacePicker Pod]
-(https://cocoapods.org/pods/GooglePlacePicker).
+The Google Places API for iOS is distributed as a stand alone Pod. This Pod
+contains all the Google Places API for iOS functionality which does not require
+a map.
 
 # Getting Started
 
 *   *Guides*: Read our [Getting Started guides]
-    (https://developers.google.com/places/ios-api/start).
-*   *Demo Videos*: View [pre-recorded online demos]
-    (https://developers.google.com/places/ios-api/#demos).
+    (https://developers.google.com/places/ios-sdk/start).
 *   *Code samples*: In order to try out our demo app, run
 
     ```
     $ pod try GooglePlaces
-    ```
-
-    For a demo of the Place Picker component run
-
-    ```
-    $ pod try GooglePlacePicker
     ```
 
     and follow the instructions on our [developer pages]
@@ -64,15 +50,10 @@ specify it in your `Podfile`:
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
   pod 'GooglePlaces'
 end
-```
-
-if you are also using the Place Picker add:
-```
-pod 'GooglePlacePicker'
 ```
 
 Then, run the following command:
