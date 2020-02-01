@@ -21,10 +21,3 @@ Our traditional MVC and MVM architecture that we are all accquainted with have o
 ## Code Description
 
 [Flow Description](https://medium.com/swift-india/viper-architecture-example-in-ios-in-swift-4-6f656a441f7c)
-
-
-## Acknowledgment
-
-* Adeesh Jain
-* Avinash Kumar Gautam
-
